@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <!-- Nome -->
+        <label for="name">Nome completo: </label><br>
+        <input type="text" name="name" id="name" required><br>
+
+        <!-- Idade -->
+        <label for="age">Idade: </label><br>
+        <input type="number" name="age" id="age" min="18" max="120" required><br>
+
+        <!-- E-mail -->
+        <label for="email">E-mail: </label><br>
+        <input type="email" name="email" id="email" placeholder="insira um e-mail válido" required><br>
+        
+        <!-- Conteúdo -->
+        <label for="conteudo">Conteúdo de maior interesse: </label><br>
+        <select name="conteudo" id="conteudo">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript" selected>JavaScript</option>
+        </select><br>
+
+        <!-- Opinião -->
+        <label for="opiniao">Deixe sua opinião: </label><br>
+        <textarea name="opiniao" id="opiniao" rows="5" cols="30"></textarea><br>
+
+        <!-- Senha -->
+        <label for="pwd">Senha: </label><br>
+        <input type="password" name="pwd" id="pwd" required>
+
+        <br>
+        <br>
+
+        <!-- Submit -->
+        <input type="submit" value="Enviar">
+
+    </form>
+</body>
+</html>
