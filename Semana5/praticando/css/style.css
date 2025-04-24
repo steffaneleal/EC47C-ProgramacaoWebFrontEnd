@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(230, 229, 228);
+    margin: 2rem;
+    font-size: large;
+}
+
+nav {
+    margin-bottom: 2rem;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: rgba(0, 89, 255);
+}
+
+h1, h2 {
+    color: rgb(0, 89, 255);
+}
+
+#principal {
+    text-align: center;
+    text-shadow: 3px 3px 0.8rem black;
+}
+
+nav {
+    text-align: center;
+}
+
+.img {
+    text-align: center;
+}
+
+#ods {
+    color: rgba(0, 89, 255);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#sigla {
+    color: rgba(0, 89, 255);
+    font-weight: bold;
+}
+
+footer {
+    background-color: rgba(240, 248, 255, 0.5);
+    text-align: center;
+}
