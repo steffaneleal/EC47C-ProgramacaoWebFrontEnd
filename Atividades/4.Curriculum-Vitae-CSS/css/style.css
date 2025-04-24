@@ -1,0 +1,118 @@
+/*CONFIGURAÇÕES GLOBAIS/PADRÃO*/
+body {
+    background-color: #d0d8df;
+    width: 1080px;
+    height: auto;
+    margin: auto;
+    font-size: 1rem;
+    font-family: "Roboto";
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover{
+    color: #FFF;
+    transition: 0.3s ease;
+}
+
+.span-paragrafo {
+    font-style: oblique;
+}
+
+.span-paragrafo2 {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+/*HEADER*/
+header {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*HEADER*/
+header h1 {
+    color: #065A82;
+    text-decoration: underline #065A82;
+    text-shadow: 0.4rem 0.4rem 0.4rem #00000069;
+}
+
+
+/* FIGURE*/
+#figure-perfil {
+    text-align: center;
+}
+
+.foto-perfil {
+    border-radius: 100px;
+    border: 0.3em solid #065A82;
+    /* border: 0.4rem solid #1B3B6F; */
+}
+
+
+/*NAV*/
+nav {
+    padding: 1rem;
+}
+
+nav li, ul li i, ul li span{
+    list-style-type: none;
+    color: #065A82;
+}
+
+nav li a {
+    color: #000;
+}
+
+
+/*SEÇÕES*/
+section {
+    color: #f3ededec;
+}
+
+section h2 {
+    background-color: rgba(6, 90, 130, 0.7);
+    margin-left: 1rem;
+    margin-top: 2rem;
+    padding-left: 1rem;
+    box-shadow: 0.15rem 0.15rem 0.3rem #000;
+    font-family: "Cascadia Code";
+    font-size: 1.5rem;
+}
+
+section .resumo-paragrafos, figure, .educacao{
+    padding: 0 2rem;
+    color: #000;
+}
+
+section ol, ul {
+    padding: 0 3rem;;
+    color: #000;
+}
+
+#educacao dt {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+section figure {
+    margin: 0 1rem;
+}
+
+.link-github {
+    list-style: none;
+}
+
+
+/*FOOTER*/
+footer {
+    background-color: #065b8270;
+    text-align: center;
+    color: #FFF;
+    margin: 1rem;
+}
