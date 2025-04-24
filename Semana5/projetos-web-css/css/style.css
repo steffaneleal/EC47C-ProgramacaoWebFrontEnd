@@ -9,16 +9,41 @@ header {
 
 footer {
     background-color: rgba(54, 148, 211, 0.788);
+    text-align: center;
 }
 
 h1 {
     color: blue;
+    text-decoration: underline dotted;
 }
 
 h2 {
     color: brown;
 }
 
+a {
+    font-size: 150%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 p {
     color: black;
+    font-style: italic;
+    font-size: 120%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.desc {
+    color: white;
+    text-shadow: 0 0 4px black;
+}
+
+#sigla {
+    font-weight: bold;
+    text-decoration: underline overline blue;
+}
+
+#ods {
+    color: rgb(16, 37, 197);
+    text-decoration-style: double;
 }
