@@ -1,0 +1,5 @@
+Aula 4 - CSS
+Objetivos
+    - Aprender o conceito de grid layout
+    - Aprender as propriedades do elemento pai (grid container)
+    - Aprender as propriedades dos elementos filhos (grid items)

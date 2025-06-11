@@ -1,0 +1,15 @@
+Aula 2 - CSS
+Objetivos
+    - Aprender o conceito de modelo de caixa do CSS
+    - Aprender a trabalhar com a margem
+    - Aprender a trabalhar com a borda
+    - Aprender a trabalhar com o preenchimento (padding)
+    - Aprender a usar a propriedade display
+    - Aprender a utilizar a propriedade float
+    - Aprender a utilizar a propriedade overflow
+
+
+Aula 3 - CSS
+    - Aprender o conceito de flexbox
+    - Aprender as propriedades do elemento pai (flex container)
+    - Aprender as propriedades dos elementos filhos (flex items)
