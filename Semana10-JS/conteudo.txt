@@ -1,0 +1,5 @@
+Aula 1 - JavaScript
+Objetivos
+    - Descobrir a história da linguagem JavaScript
+    - Compreender as formas de uso da linguagem JavaScript
+    - Conhecer as características da linguagem JavaScript

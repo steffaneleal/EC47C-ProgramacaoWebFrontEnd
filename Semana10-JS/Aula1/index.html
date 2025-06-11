@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prática JS - 1</title>
+</head>
+<body>
+    <!-- OBJETO DATE -->
+    <script type="text/javascript">
+        const dataAtual = new Date();
+
+        const dia = dataAtual.getDate(); // Dia do mês (1-31)
+        const mes = dataAtual.getMonth(); // Mês (0-11, janeiro é 0)
+        const ano = dataAtual.getFullYear();
+        const hora = dataAtual.getHours(); // Hora (0 - 23)
+        const minutos = dataAtual.getMinutes(); // Minutos (0 - 59)
+        const segundos = dataAtual.getSeconds(); 
+
+        alert(`Data atual: ${dia}/${mes}/${ano}`);
+
+        console.log(`Horário atual: ${hora}:${minutos}:${segundos}`);
+
+    </script>
+
+
+    <script type="text/javascript">
+        var i = 0;
+        for (i = 0; i <= 8; i++) {
+            document.write("Número digitado: " + i);
+            document.write("<br/>");
+        }
+    </script>
+</body>
+</html>
