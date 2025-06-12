@@ -3,3 +3,8 @@ Objetivos
     - Descobrir a história da linguagem JavaScript
     - Compreender as formas de uso da linguagem JavaScript
     - Conhecer as características da linguagem JavaScript
+
+Aula 2 - JavaScript
+Objetivos
+    - Aprender a utilizar JavaScript com DOM HTML
+    

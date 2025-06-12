@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos - JavaScript</title>
+</head>
+
+<body>
+    <main>
+        <section id="inicio">
+            <img id="ods-img"
+                src="https://pactoglobal.org.br/wp-content/themes/pacto-global/storage/ods/March2019/3YvX29fWOMMJeUt0rDZK.png"
+                alt="Logo da ODS 1">
+        </section>
+
+        <section>
+            <h1>Objetivos de Desenvolvimento Sustentável</h1>
+            <p id="desc">Em 2015, a ONU propôs aos seus países membros uma nova agenda de desenvolvimento sustentável para
+                os próximos 15 anos, a Agenda 2030, composta pelos 17 Objetivos de Desenvolvimento Sustentável (ODS).</p>
+            <h2>Conheça mais</h2>
+            <p>Os Objetivos de Desenvolvimento Sustentável são um apelo global à ação para acabar
+                com a pobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os
+                lugares, possam desfrutar de paz e de prosperidade.</p>
+        </section>
+
+        <section>
+            <button onclick="mudarCor('red')">Alterar cor</button>
+        </section>
+    </main>
+
+    <script type="text/javascript">
+        var textos = document.getElementsByTagName("p");
+        console.log(textos);
+
+        var primeiroParagrafo = textos[0];
+        console.log(primeiroParagrafo)
+
+        // document.getElementsByTagName
+        console.log(document.getElementsByTagName("p")[1].innerHTML); // o inner faz aparecer o conteúdo 
+        console.log(document.getElementsByTagName("h2")[0]); // assim faz aparecer a tag -> <h2>Conheça mais</h2>
+
+        // document.getElementById(id) e element.getAttribute()
+        var img_ods = document.getElementById("ods-img");
+        var texto_alt = img_ods.getAttribute("alt");
+        console.log(texto_alt);
+
+        function mudarCor(novaCor) {
+            var elemento = document.getElementsByTagName("p")[1];
+            elemento.style.color = novaCor;
+        }
+
+        // document.createElement(name)
+        var novoDiv = document.createElement("div");
+
+        // parentNode.appendChild(node) 
+        var body = document.body;
+        body.appendChild(novoDiv);
+
+        // document.createTextNode(data)
+        var novoParagrafo = document.createElement("p"); // cria um novo elemento p
+        var textoNovo = document.createTextNode("Inserindo novo conteúdo sobre ODS!"); // cria um texto para o elemento p
+        novoParagrafo.appendChild(textoNovo); // faz um append do texto ao elemento p
+        var conteudo = document.getElementById("inicio"); // busca uma section a partir do ID "inicio"
+        conteudo.appendChild(novoParagrafo); // faz um append do parágrafo à section buscada
+
+        // element.innerHTML
+        var meuElemento = document.getElementById("desc");
+        var conteudoHTML = meuElemento.innerHTML;
+        console.log(conteudoHTML);
+
+        var meuElemento = document.getElementById("desc");
+        meuElemento.innerHTML = "Alterando o conteúdo";
+
+        // element.addEventListener() -> exemplo1.html
+    </script>
+</body>
+
+</html>
