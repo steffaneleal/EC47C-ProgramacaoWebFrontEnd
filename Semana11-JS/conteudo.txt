@@ -1,0 +1,8 @@
+Aula 3 - JavaScript
+
+Objetivos:
+    - Aprender a utilizar o método QuerySelector() e QuerySelectorAll()
+    - Aprender a utilizar o método classList.add()
+    - Aprender a utilizar o método classList.remove()
+    - Criar uma lista de tarefas com HTML, CSS e JavaScript
+    
