@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- links -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login">
+        <form action="" name="form-login">
+
+            <h1>CADASTRO</h1>
+            <label for="name">E-mail: </label>
+            <input type="email" name="email" id="name" placeholder="E-mail" required>
+
+            <label for="pw">Senha: </label>
+            <input type="password" name="pw" id="pw" placeholder="Senha" required>
+
+            <ul class="helper-text">
+                <li class="length">Deve conter até 8 caracteres.</li>
+                <li class="lowercase">Deve conter ao menos uma letra minúscula.</li>
+                <li class="uppercase">Deve conter ao menos uma letra maiúscula.</li>
+            </ul>
+            <input type="submit" value="Cadastrar" id="rgstr_btn" onclick="store()">
+
+        </form>
+    </div>
+
+    <div class="login">
+        <form action="" name="form-login">
+            
+            <h1>LOGIN</h1>
+            <label for="userName">E-mail: </label>
+            <input type="email" name="userName" id="userName" placeholder="E-mail" required>
+
+            <label for="userPw">Senha: </label>
+            <input type="password" name="userPw" id="userPw" placeholder="Senha" required>
+
+            <input type="submit" value="Login" id="login_btn" onclick="check()">
+
+        </form>
+    </div>
+</body>
+    <script src="script.js"></script>
+</html>

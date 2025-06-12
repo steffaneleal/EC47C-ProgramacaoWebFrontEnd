@@ -1,0 +1,6 @@
+Aula 4 - JavaScript
+Objetivos  
+    - Aprender o que é a API Web Storage
+    - Aprender as funcionalidades do localStorage
+    - Aprender a utilizar o localStorage em um cadastro de login
+    - Atividade prática - Remoção de dados do armazenamento local
