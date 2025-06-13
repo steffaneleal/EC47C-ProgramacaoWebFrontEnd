@@ -1,0 +1,6 @@
+Aula 5 - JavaScript
+
+OBJETIVOS
+    - Aprender a manipular objetos JSON na API Web Storage
+    - Atividade prática - Utilizando objetos JSON em localStorage
+    - Atividade prática - Utilizando localStorage na lista de tarefas
