@@ -1,101 +1,100 @@
-// Lista de tarefas e contador
-var taskList = []; // Array vazio para armazenar as tarefas
-var count = 1; // Contador para IDs únicos
+// Lista de tarefas com localStorage
+
+// Criar uma lista vazia de tarefas
+var listaTarefas = [];
+var count = 1;
 
 // Função para adicionar uma nova tarefa
-function addTask(description) {
-  var newTask = { id: count++, description: description }; // Cria novo objeto tarefa
-  taskList.push(newTask); // Adiciona a tarefa ao array
-  // localStorage.setItem('taskList', JSON.stringify(taskList)); // Salva no localStorage
-  
-  // Para ambiente Claude (substitua pela linha acima em produção):
-  console.log('Tarefa salva:', newTask);
-  
-  renderTaskList();
+function adicionarTarefa(descricao) {
+    var novaTarefa = { id: count++, descricao: descricao, concluida: false };
+    listaTarefas.push(novaTarefa);
+    localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas));
+    renderizarListaTarefas();
 }
 
 // Função para excluir uma tarefa
-function deleteTask(taskId) {
-  var updatedTaskList = taskList.filter(function (task) {
-    return task.id !== taskId; // Retorna todas as tarefas exceto a selecionada
-  });
+function excluirTarefa(tarefaId) {
+    var listaAtualizada = listaTarefas.filter(function (tarefa) {
+        return tarefa.id !== tarefaId;
+    });
 
-  if (updatedTaskList.length < taskList.length) { // Verifica se a lista mudou
-    taskList = updatedTaskList;
-    // localStorage.setItem('taskList', JSON.stringify(taskList)); // Atualiza localStorage
-    
-    // Para ambiente Claude (substitua pela linha acima em produção):
-    console.log('Tarefa excluída. Lista atual:', taskList);
-    taskList.display.none;
-    
-    renderTaskList(); // Re-renderiza a lista completa
-  } else {
-    alert('Tarefa não encontrada.');
-  }
+    if (listaAtualizada.length < listaTarefas.length) {
+        listaTarefas = listaAtualizada;
+        localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas));
+        renderizarListaTarefas();
+    } else {
+        alert('Tarefa não encontrada.');
+    }
+}
+
+// Função para alternar status da tarefa (marcada/desmarcada)
+function alternarTarefa(tarefaId) {
+    listaTarefas.forEach(function(tarefa) {
+        if (tarefa.id === tarefaId) {
+            tarefa.concluida = !tarefa.concluida;
+        }
+    });
+    localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas));
+    renderizarListaTarefas();
 }
 
 // Função para recuperar a lista de tarefas do localStorage
-function getTaskList() {
-  // var storedList = JSON.parse(localStorage.getItem('taskList')); // Converte string JSON para objeto
-  // taskList = storedList || []; // Se não existir, usa array vazio
-  
-  // Para ambiente Claude (substitua pelas linhas acima em produção):
-  taskList = taskList || [];
-  console.log('Tarefas carregadas:', taskList);
+function obterListaTarefas() {
+    var listaArmazenada = JSON.parse(localStorage.getItem('listaTarefas'));
+    listaTarefas = listaArmazenada || [];
+    
+    // Atualiza o count para o próximo ID
+    if (listaTarefas.length > 0) {
+        var maiorId = 0;
+        listaTarefas.forEach(function(tarefa) {
+            if (tarefa.id > maiorId) {
+                maiorId = tarefa.id;
+            }
+        });
+        count = maiorId + 1;
+    }
 }
 
 // Função para renderizar a lista de tarefas no HTML
-function renderTaskList() {
-  var taskListElement = document.getElementById('itemLista');
+function renderizarListaTarefas() {
+    var elementoLista = document.getElementById('itemLista');
+    elementoLista.innerHTML = '';
 
-  taskList.forEach(function (task) {
-    var listItem = document.createElement('li');
-    listItem.style.backgroundColor = 'pink'; // Estilo da tarefa
-    listItem.style.fontFamily = 'sans-serif'; // Estilo da tarefa
-    
-    // Conteúdo do item da lista
-    listItem.innerHTML = '<span>' + task.description + '</span>' + 
-                        '<span class="close" onclick="deleteTask(' + task.id + ')">\u00D7</span>';
-    
-    taskListElement.appendChild(listItem);
-  });
+    listaTarefas.forEach(function (tarefa) {
+        var itemLista = document.createElement('li');
+        
+        if (tarefa.concluida) {
+            itemLista.className = 'checked';
+        }
+        
+        itemLista.innerHTML = tarefa.descricao + '<span class="close" onclick="excluirTarefa(' + tarefa.id + ')">\u00D7</span>';
+        
+        // Adiciona click para marcar/desmarcar
+        itemLista.onclick = function(event) {
+            if (event.target.className !== 'close') {
+                alternarTarefa(tarefa.id);
+            }
+        };
+        
+        elementoLista.appendChild(itemLista);
+        itemLista.style.backgroundColor = 'pink';
+    });
 }
 
-// Função que adiciona um elemento (adaptada da sua função original)
+// Função original do projeto (mantida para compatibilidade)
 function addElemento() {
-  var inputValue = document.getElementById("tarefa").value.trim();
-  
-  if (inputValue === '') {
-    alert("Você precisa descrever a tarefa");
-    return;
-  }
-  
-  addTask(inputValue); // Chama a função de adicionar tarefa
-  document.getElementById("tarefa").value = ""; // Limpa o input
-}
-
-// Funcionalidade para marcar tarefa como concluída (mantendo sua lógica original)
-var list = document.querySelector('ul');
-if (list) {
-  list.addEventListener('click', function(ev) {
-    if(ev.target.tagName === 'LI') {
-      ev.target.classList.toggle('checked');
+    var inputValue = document.getElementById("tarefa").value;
+    
+    if (inputValue === '') {
+        alert("Você precisa descrever a tarefa");
+    } else {
+        adicionarTarefa(inputValue);
+        document.getElementById("tarefa").value = "";
     }
-  }, false);
 }
 
-// Recuperar a lista de tarefas do localStorage ao carregar a página
-getTaskList();
+// Recuperar a lista de tarefas do localStorage
+obterListaTarefas();
 
 // Renderizar a lista de tarefas no HTML
-renderTaskList();
-
-// Código original para itens já existentes no HTML
-var myNodelist = document.getElementsByTagName("li");
-for (var i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("span");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
+renderizarListaTarefas();
