@@ -1,12 +1,11 @@
-// Lista de tarefas com localStorage
+// Lista de tarefas com localStorage 
 
-// Criar uma lista vazia de tarefas
 var listaTarefas = [];
-var count = 1;
+var contador = 1;
 
 // Função para adicionar uma nova tarefa
 function adicionarTarefa(descricao) {
-    var novaTarefa = { id: count++, descricao: descricao, concluida: false };
+    var novaTarefa = { id: contador++, descricao: descricao, concluida: false };
     listaTarefas.push(novaTarefa);
     localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas));
     renderizarListaTarefas();
@@ -41,9 +40,20 @@ function alternarTarefa(tarefaId) {
 // Função para recuperar a lista de tarefas do localStorage
 function obterListaTarefas() {
     var listaArmazenada = JSON.parse(localStorage.getItem('listaTarefas'));
-    listaTarefas = listaArmazenada || [];
     
-    // Atualiza o count para o próximo ID
+    if (listaArmazenada) {
+        listaTarefas = listaArmazenada;
+    } else {
+        // Se não houver dados salvos, inicializa com as tarefas padrão
+        listaTarefas = [
+            { id: 1, descricao: "Tomar café", concluida: true },
+            { id: 2, descricao: "Fazer compras", concluida: false },
+            { id: 3, descricao: "Entregar atividades no moodle", concluida: false }
+        ];
+        localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas));
+    }
+    
+    // Atualiza o contador para o próximo ID
     if (listaTarefas.length > 0) {
         var maiorId = 0;
         listaTarefas.forEach(function(tarefa) {
@@ -51,7 +61,7 @@ function obterListaTarefas() {
                 maiorId = tarefa.id;
             }
         });
-        count = maiorId + 1;
+        contador = maiorId + 1;
     }
 }
 
@@ -77,7 +87,6 @@ function renderizarListaTarefas() {
         };
         
         elementoLista.appendChild(itemLista);
-        itemLista.style.backgroundColor = 'pink';
     });
 }
 
