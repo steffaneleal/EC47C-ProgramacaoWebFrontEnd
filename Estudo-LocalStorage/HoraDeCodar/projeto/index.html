@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetinho de localStorage</title>
+
+    <script src="scripts.js" defer></script> <!-- defer serve para otimizar o carregamento de scripts, permitindo que o navegador baixe o script de forma assíncrona, mas execute-o apenas depois que o documento HTML for completamente analisado -->
+</head>
+<body>
+    <h1>localStorage e sessionStorage</h1>
+
+    <form action="" id="name-form">
+        <h2>Preencha o formulário para continuar: </h2>
+        <label for="name">Nome: </label>
+        <input type="text" name="name" id="name" placeholder="Por favor digite o seu nome..." required>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div id="welcome">
+        <h2>Seja bem-vindo <span id="username"></span></h2>
+        <button id="logout">Sair</button>
+    </div>
+</body>
+</html>
