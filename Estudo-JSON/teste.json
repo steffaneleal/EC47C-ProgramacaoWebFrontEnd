@@ -1,0 +1,12 @@
+[
+    {
+        "nome": "Stéffane",
+        "idade": 23,
+        "esta_atrabalhando": true,
+        "detalhes_profissao": {
+            "profissao": "Programador",
+            "empresa": "UTFPR"
+        },
+        "hobbies": ["Programar", "Correr", "Ler"]
+    }
+]
